@@ -1,5 +1,6 @@
 <?php
 
+use \App\Http\Livewire\Course\MyCourse;
 use App\Http\Livewire\Admin\AdminDashboardComponent;
 use App\Http\Livewire\HomeComponent;
 use \App\Http\Livewire\ContactComponent;
@@ -35,6 +36,7 @@ Route::get('/contact', ContactComponent::class)->name('contact');
 // Student
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/student/dashboard', StudentDashboardComponent::class)->name('student.dashboard');
+    Route::get('student/course', MyCourse::class)->name('student.course');
 });
 
 // Teacher
