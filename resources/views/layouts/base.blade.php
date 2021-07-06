@@ -202,9 +202,7 @@
                                                     </a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link active" href="/">聯絡我們
-                                                        <span class="sub-nav-toggler">
- 													</span>
+                                                    <a class="nav-link active" href="/contact">聯絡我們
                                                     </a>
                                                 </li>
 

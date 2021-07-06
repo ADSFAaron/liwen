@@ -2,6 +2,7 @@
 
 use App\Http\Livewire\Admin\AdminDashboardComponent;
 use App\Http\Livewire\HomeComponent;
+use \App\Http\Livewire\ContactComponent;
 use App\Http\Livewire\Student\StudentDashboardComponent;
 use App\Http\Livewire\Teacher\TeacherDashboardComponent;
 use Illuminate\Support\Facades\Route;
@@ -25,7 +26,11 @@ use Illuminate\Support\Facades\Route;
 //    return view('dashboard');
 //})->name('dashboard');
 
+// Home Page
 Route::get('/', HomeComponent::class)->name('home');
+
+// Contact Us
+Route::get('/contact', ContactComponent::class)->name('contact');
 
 // Student
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
