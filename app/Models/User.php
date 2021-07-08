@@ -58,4 +58,54 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function granted_courses()
+    {
+        return $this->belongsToMany(Course::class, 'user_course');
+    }
+
+    public function homeworks()
+    {
+        return $this->hasMany(Homework::class, 'published_user_id');
+    }
+
+    public function homework_images()
+    {
+        return $this->hasMany(HomeworkImage::class, 'uploaded_user_id');
+    }
+
+    public function handed_in()
+    {
+        return $this->hasMany(HandedIn::class, 'user_id');
+    }
+
+    public function graded_handed_in()
+    {
+        return $this->hasMany(HandedIn::class, 'graded_user_id');
+    }
+
+    public function test_urls()
+    {
+        return $this->hasMany(TestUrl::class, 'uploaded_user_id');
+    }
+
+    public function tests()
+    {
+        return $this->hasMany(Test::class, 'published_user_id');
+    }
+
+    public function course_videos()
+    {
+        return $this->hasMany(CourseVideo::class, 'uploaded_user_id');
+    }
+
+    public function courses()
+    {
+        return $this->hasMany(Course::class, 'created_user_id');
+    }
+
+    public function categories()
+    {
+        return $this->hasMany(Category::class, 'created_user_id');
+    }
 }
