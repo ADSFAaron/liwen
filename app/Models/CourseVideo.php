@@ -9,6 +9,8 @@ class CourseVideo extends Model
 {
     use HasFactory;
 
+    protected $table = "course_videos";
+
     public function course()
     {
         return $this->belongsTo(Course::class, 'course_id');

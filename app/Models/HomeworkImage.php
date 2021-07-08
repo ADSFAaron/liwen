@@ -9,6 +9,8 @@ class HomeworkImage extends Model
 {
     use HasFactory;
 
+    protected $table = "homework_images";
+
     public function uploaded_user()
     {
         return $this->belongsTo(User::class, 'uploaded_user_id');

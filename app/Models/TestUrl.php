@@ -9,6 +9,8 @@ class TestUrl extends Model
 {
     use HasFactory;
 
+    protected $table = "test_urls";
+
     public function uploaded_user()
     {
         return $this->belongsTo(User::class, 'uploaded_user_id');

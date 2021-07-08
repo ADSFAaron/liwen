@@ -9,6 +9,8 @@ class Test extends Model
 {
     use HasFactory;
 
+    protected $table = "tests";
+
     public function course()
     {
         return $this->belongsTo(Course::class, 'course_id');
