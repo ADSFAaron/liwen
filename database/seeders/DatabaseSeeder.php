@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory(1)->teacher()->create()->each( function($user) {
+        \App\Models\User::factory(2)->teacher()->create()->each( function($user) { // Teacher
             $user->categories()->save(\App\Models\Category::factory()->make());
             $user->categories()->each(function ($category) use ($user) {
                 $category->courses()->saveMany([
@@ -57,7 +57,7 @@ class DatabaseSeeder extends Seeder
                 });
             });
         });
-        \App\Models\User::factory(3)->student()->create()->each( function($user) {
+        \App\Models\User::factory(3)->student()->create()->each( function($user) { // Student
             \App\Models\Course::each(function ($course) use ($user) {
                 $course->homeworks()->each( function($homework) use ($user) {
                     $homework->handed_in()->save(\App\Models\HandedIn::factory()->make(['user_id' => $user->id]));
