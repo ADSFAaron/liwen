@@ -7,9 +7,15 @@
                         <div class="section-title">
                             <h2><b>課程瀏覽</b></h2>
                         </div>
-                        @foreach ($categories as $category)
-                            <a style="font-size: 28px;" href="/course/{{ $category->name }}">{{ $category->name }}</a>
-                        @endforeach
+                        <div>
+                            @foreach ($categories as $category)
+                                <div class="mt-3">
+                                    <li>
+                                        <a style="font-size: 28px;" href="/course/{{ $category->name }}">{{ $category->name }}</a>
+                                    </li>
+                                </div>
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>
