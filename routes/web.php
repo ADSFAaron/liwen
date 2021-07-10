@@ -4,6 +4,7 @@
 use App\Http\Livewire\Admin\AdminDashboardComponent;
 use App\Http\Livewire\HomeComponent;
 use \App\Http\Livewire\ContactComponent;
+use App\Http\Livewire\Course\CourseDetail;
 use App\Http\Livewire\Student\StudentDashboardComponent;
 use App\Http\Livewire\Teacher\TeacherDashboardComponent;
 use App\Http\Livewire\Course\MyCourse;
@@ -41,6 +42,7 @@ Route::middleware(['auth:sanctum', 'verified'])->prefix('course')->name('course.
     Route::get('/', CourseList::class)->name('course-list');
     Route::get('my-course', MyCourse::class)->name('my-course');
     Route::get('/{category}', CourseEnterCategory::class)->name('course-enter-category');
+    Route::get('/{category}/{course}', CourseDetail::class)->name('course-detail');
 });
 
 // Student
