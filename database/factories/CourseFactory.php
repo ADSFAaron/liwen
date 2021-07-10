@@ -22,7 +22,7 @@ class CourseFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->text(30),
+            'name' => $this->faker->unique()->text(30),
             'description' => $this->faker->text(150),
             'date' => $this->faker->date(),
             'lecture' => $this->faker->text(10),
