@@ -128,7 +128,7 @@
  													</span>
                                                         </a>
                                                         <ul class="sub-menu">
-                                                            <li><a href="{{route('teacher.dashboard')}}">我的資料</a></li>
+                                                            <li><a href="{{ route('profile.show') }}">我的資料</a></li>
                                                             <li><a href="{{route('logout')}}"
                                                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">登出</a>
                                                             </li>
@@ -153,7 +153,7 @@
  													</span>
                                                         </a>
                                                         <ul class="sub-menu">
-                                                            <li><a href="{{route('admin.dashboard')}}">我的資料</a></li>
+                                                            <li><a href="{{ route('profile.show') }}">我的資料</a></li>
                                                             <li><a href="{{route('logout')}}"
                                                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">登出</a>
                                                             </li>
@@ -173,12 +173,11 @@
 
                                                     <li class="nav-item">
                                                         <a class="nav-link" href="#">帳戶管理
-                                                            <span class="sub-nav-toggler">
- 													</span>
+                                                            <span class="sub-nav-toggler"></span>
                                                         </a>
                                                         <ul class="sub-menu">
-                                                            <li><a href="{{route('student.dashboard')}}">我的資料</a></li>
-                                                            <li><a href="{{route('logout')}}"
+                                                            <li><a href="{{ route('profile.show') }}">我的資料</a></li>
+                                                            <li><a href="{{ route('logout') }}"
                                                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">登出</a>
                                                             </li>
                                                         </ul>
@@ -218,7 +217,11 @@
                     </div>
                     <div class="col-lg-3 col-12 text-right">
                         <div class="header-right-content">
-                            <a href="contact.html" class="main-btn">免費試聽</a>
+                            @if(Route::has('login'))
+                                <a href="#" class="main-btn"> HI, {{ Auth::user()->name }}</a>
+                            @else
+                                <a href="/contact" class="main-btn">免費試聽</a>
+                            @endif
                         </div>
                     </div>
                 </div>
