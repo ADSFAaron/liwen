@@ -28,6 +28,8 @@
     <link href="{{ asset('static/css/style.css')}}" rel="stylesheet">
     <!-- Responsive CSS -->
     <link href="{{ asset('static/css/responsive.css')}}" rel="stylesheet">
+    <!-- Course CSS -->
+    <link href="{{ asset('static/css/course.css')}}" rel="stylesheet">
 
     <!-- jquery -->
     <script src="{{ asset('static/js/jquery-1.12.4.min.js')}}"></script>
@@ -112,13 +114,13 @@
                                                 @if(Auth::user()->utype === 'TEA')
 
                                                     <li class="nav-item">
-                                                        <a class="nav-link" href="#">我的課程
+                                                        <a class="nav-link" href="#">課程
                                                             <span class="sub-nav-toggler">
  													</span>
                                                         </a>
                                                         <ul class="sub-menu">
-                                                            <li><a href="about.html">課程查詢</a></li>
-                                                            <li><a href="choose-us.html">進入課程</a></li>
+                                                            <li><a href="{{route('course.course-list')}}">瀏覽課程</a></li>
+                                                            <li><a href="{{route('course.my-course')}}">我的課程</a></li>
                                                         </ul>
                                                     </li>
 
@@ -142,8 +144,8 @@
  													</span>
                                                         </a>
                                                         <ul class="sub-menu">
-                                                            <li><a href="about.html">課程查詢</a></li>
-                                                            <li><a href="choose-us.html">進入課程</a></li>
+                                                            <li><a href="{{route('course.course-list')}}">瀏覽課程</a></li>
+                                                            <li><a href="{{route('course.my-course')}}">我的課程</a></li>
                                                         </ul>
                                                     </li>
 
@@ -161,13 +163,13 @@
                                                     </li>
                                                 @else
                                                     <li class="nav-item">
-                                                        <a class="nav-link" href="#">我的課程
+                                                        <a class="nav-link" href="#">課程
                                                             <span class="sub-nav-toggler">
  													</span>
                                                         </a>
                                                         <ul class="sub-menu">
-                                                            <li><a href="about.html">課程查詢</a></li>
-                                                            <li><a href="choose-us.html">進入課程</a></li>
+                                                            <li><a href="{{route('course.course-list')}}">瀏覽課程</a></li>
+                                                            <li><a href="{{route('course.my-course')}}">我的課程</a></li>
                                                         </ul>
                                                     </li>
 

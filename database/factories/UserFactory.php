@@ -33,6 +33,40 @@ class UserFactory extends Factory
         ];
     }
 
+    public function student()
+    {
+        return $this->state(function (array $attributes) {
+            $number = $this->faker->randomNumber(3);
+            while(User::where('name', '=', 'Student'.$number)->get()->count() != 0)
+                $number = $this->faker->randomNumber(3);
+            return [
+                'name' => 'Student'.$number,
+                'email' => 'student'.$number.'@example.com',
+                'email_verified_at' => now(),
+                'password' => '$2y$10$UfrIdVjz7ns9sk0xDXDt2eOV0HcoNn3Amh8A1ntHuy6jzgcMn.w3C', // Password: 00000000
+                'remember_token' => Str::random(10),
+                'utype' => 'STU'
+            ];
+        });
+    }
+
+    public function teacher()
+    {
+        return $this->state(function (array $attributes) {
+            $number = $this->faker->randomNumber(3);
+            while(User::where('name', '=', 'Student'.$number)->get()->count() != 0)
+                $number = $this->faker->randomNumber(3);
+            return [
+                'name' => 'Teacher'.$number,
+                'email' => 'teacher'.$number.'@example.com',
+                'email_verified_at' => now(),
+                'password' => '$2y$10$UfrIdVjz7ns9sk0xDXDt2eOV0HcoNn3Amh8A1ntHuy6jzgcMn.w3C', // Password: 00000000
+                'remember_token' => Str::random(10),
+                'utype' => 'TEA'
+            ];
+        });
+    }
+
     /**
      * Indicate that the model's email address should be unverified.
      *
