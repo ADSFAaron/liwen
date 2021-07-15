@@ -139,11 +139,12 @@
                                                 @elseif(Auth::user()->utype === 'ADM')
 
                                                     <li class="nav-item">
-                                                        <a class="nav-link" href="#">課程管理
+                                                        <a class="nav-link" href="#">課程
                                                             <span class="sub-nav-toggler">
  													</span>
                                                         </a>
                                                         <ul class="sub-menu">
+                                                            <li><a href="{{route('admin.categories')}}">課程管理</a></li>
                                                             <li><a href="{{route('course.course-list')}}">瀏覽課程</a></li>
                                                             <li><a href="{{route('course.my-course')}}">我的課程</a></li>
                                                         </ul>
@@ -219,11 +220,11 @@
                     </div>
                     <div class="col-lg-3 col-12 text-right">
                         <div class="header-right-content">
-                            @if(Route::has('login'))
-                                <a href="#" class="main-btn"> HI, {{ Auth::user()->name }}</a>
-                            @else
-                                <a href="/contact" class="main-btn">免費試聽</a>
-                            @endif
+                            {{--                            @if(Route::has('login'))--}}
+                            {{--                                <a href="#" class="main-btn"> HI, {{ Auth::user()->name }}</a>--}}
+                            {{--                            @else--}}
+                            <a href="/contact" class="main-btn">免費試聽</a>
+                            {{--                            @endif--}}
                         </div>
                     </div>
                 </div>

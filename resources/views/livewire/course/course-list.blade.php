@@ -10,9 +10,11 @@
                         <div>
                             @foreach ($categories as $category)
                                 <div class="mt-3">
-                                    <li>
-                                        <a style="font-size: 28px;" href="/course/{{ $category->name }}">{{ $category->name }}</a>
-                                    </li>
+                                    <ul>
+                                        <li>
+                                            <a style="font-size: 28px;" href="/course/{{ $category->name }}">{{ $category->name }}</a>
+                                        </li>
+                                    </ul>
                                 </div>
                             @endforeach
                         </div>

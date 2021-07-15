@@ -58,4 +58,7 @@ Route::middleware(['auth:sanctum', 'verified', 'authteacher'])->prefix('teacher'
 // Admin
 Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('dashboard', AdminDashboardComponent::class)->name('dashboard');
+    Route::get('categories', \App\Http\Livewire\Admin\AdminCategoryComponent::class)->name('categories');
+    Route::get('category/add', \App\Http\Livewire\Admin\AdminAddCategoryComponent::class)->name('addcategory');
+    Route::get('category/edit/{category_slug}', \App\Http\Livewire\Admin\AdminEditCategoryComponent::class)->name('editcategory');
 });
