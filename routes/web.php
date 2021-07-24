@@ -2,11 +2,15 @@
 
 
 use App\Http\Livewire\Admin\AdminDashboardComponent;
+use \App\Http\Livewire\Admin\AdminCategoryComponent;
+use \App\Http\Livewire\Admin\AdminAddCategoryComponent;
+use \App\Http\Livewire\Admin\AdminEditCategoryComponent;
 use App\Http\Livewire\HomeComponent;
 use \App\Http\Livewire\ContactComponent;
 use App\Http\Livewire\Course\CourseDetail;
 use App\Http\Livewire\Student\StudentDashboardComponent;
 use App\Http\Livewire\Teacher\TeacherDashboardComponent;
+use \App\Http\Livewire\Teacher\TeacherUploadVideo;
 use App\Http\Livewire\Course\MyCourse;
 use App\Http\Livewire\Course\CourseList;
 use App\Http\Livewire\Course\CourseEnterCategory;
@@ -53,12 +57,13 @@ Route::middleware(['auth:sanctum', 'verified'])->prefix('student')->name('studen
 // Teacher
 Route::middleware(['auth:sanctum', 'verified', 'authteacher'])->prefix('teacher')->name('teacher.')->group(function () {
     Route::get('dashboard', TeacherDashboardComponent::class)->name('dashboard');
+    Route::get('upload-video', TeacherUploadVideo::class)->name('uploadvideo');
 });
 
 // Admin
 Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('dashboard', AdminDashboardComponent::class)->name('dashboard');
-    Route::get('categories', \App\Http\Livewire\Admin\AdminCategoryComponent::class)->name('categories');
-    Route::get('category/add', \App\Http\Livewire\Admin\AdminAddCategoryComponent::class)->name('addcategory');
-    Route::get('category/edit/{category_slug}', \App\Http\Livewire\Admin\AdminEditCategoryComponent::class)->name('editcategory');
+    Route::get('categories', AdminCategoryComponent::class)->name('categories');
+    Route::get('category/add', AdminAddCategoryComponent::class)->name('addcategory');
+    Route::get('category/edit/{category_slug}', AdminEditCategoryComponent::class)->name('editcategory');
 });
