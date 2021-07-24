@@ -23,6 +23,7 @@ class TeacherUploadVideo extends Component
     public $video_info = [];
     public $description;
     public $lesson;
+    public $lesson_name;
     public $class_date;
     public $image;
     public $category_id;
@@ -65,7 +66,9 @@ class TeacherUploadVideo extends Component
             'slug' => 'required|unique:courses',
             'description' => 'required',
             'lesson' => 'required|numeric',
+            'lesson_name' => 'required',
             'class_date' => 'required|date',
+//            'image' => 'mimes:jpeg,png',
             'category_id' => 'required'
         ]);
     }
@@ -77,7 +80,9 @@ class TeacherUploadVideo extends Component
             'slug' => 'required|unique:courses',
             'description' => 'required',
             'lesson' => 'required|numeric',
+            'lesson_name' => 'required',
             'class_date' => 'required|date',
+//            'image' => 'mimes:jpeg,png',
             'category_id' => 'required'
         ]);
 
@@ -87,9 +92,18 @@ class TeacherUploadVideo extends Component
         $courses->slug = $this->slug;
         $courses->description = $this->description;
         $courses->date = $this->class_date;
-        $courses->lecture = "N/A";
+        $courses->lecture = $this->lesson_name;
         $courses->lesson = $this->lesson;
         $courses->created_user_id = Auth::user()->id;
+
+        // 保留後續增加封面圖片功能
+//        if (!empty(Carbon::now()->timestamp)) {
+//            if ($this->image != null) {
+//                $imageName = Carbon::now()->timestamp . '.' . $this->image->extension();
+//                $this->image->storeAs('products', $imageName);
+//                $courses->image = $imageName;
+//            }
+//        }
         $courses->save();
 
         foreach ($this->video_info as $video) {
@@ -98,7 +112,7 @@ class TeacherUploadVideo extends Component
             $course_video->url = $video["url"];
             $course_video->description = $video["description"];
             $course_id = Course::where('name', $this->name)->first();
-            @dump($course_id);
+//            @dump($course_id);
             $course_video->course_id = $course_id->id;
             $course_video->uploaded_user_id = Auth::user()->id;
             $course_video->save();
