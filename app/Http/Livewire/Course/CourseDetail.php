@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Course;
 
+use App\Models\CourseVideo;
 use Livewire\Component;
 use \App\Models\Category;
 
@@ -20,6 +21,9 @@ class CourseDetail extends Component
     public function render()
     {
         $this->course = Category::where('name', $this->category_name)->firstOrFail()->courses()->where('name', $this->course_name)->firstOrFail();
-        return view('livewire.course.course-detail')->layout('layouts.base');
+
+        $course_video = CourseVideo::where('course_id', $this->course->id)->get();
+//        dump($course_video);
+        return view('livewire.course.course-detail', ['course_video' => $course_video])->layout('layouts.base');
     }
 }

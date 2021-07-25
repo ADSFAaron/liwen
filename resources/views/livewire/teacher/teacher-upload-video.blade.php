@@ -145,6 +145,9 @@
                     @endforeach
                     </tbody>
                 </table>
+                @error('video')
+                <p class="text-danger">{{$message}}</p>
+                @enderror
 
                 <div class="row">
                     <div class="col-md-12">

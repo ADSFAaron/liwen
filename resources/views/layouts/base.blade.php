@@ -34,6 +34,9 @@
     <!-- jquery -->
     <script src="{{ asset('static/js/jquery-1.12.4.min.js')}}"></script>
 
+    {{-- Embed Used --}}
+    <x-embed-styles/>
+
     @livewireStyles
 </head>
 
